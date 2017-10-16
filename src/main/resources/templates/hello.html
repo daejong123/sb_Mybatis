@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+</head>
+<body class="ui container" style="margin-top:50px">
+    <div class="ui dividing header">
+        <h1>hello world</h1>
+    </div>
+    <#list list as houseEntity>
+        <div class="ui segment">
+            <h2>${houseEntity.houseName}</h2>
+            <h2>${houseEntity.price}</h2>
+            <h3><a href="${houseEntity.url}">${houseEntity.url}</a></h3>
+        </div>
+    </#list>
+</body>
+</html>

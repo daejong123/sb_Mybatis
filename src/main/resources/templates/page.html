@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页查询</title>
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+</head>
+<body class="ui container" style="margin-top: 50px;">
+
+    <div class="ui secondary menu">
+        <h1>分页查询示例</h1>
+        <div class="right menu">
+            <a class="ui item" href="/daejong/hc/page?page=1">首页</a>
+            <a class="ui item" href="/daejong/hc/page?page=${pageInfo.hasPreviousPage?string('${pageInfo.prePage}' ,'${pageInfo.pageNum}')}">上一页</a>
+            <a class="ui item" href="/daejong/hc/page?page=${pageInfo.hasNextPage?string('${pageInfo.nextPage}' ,'${pageInfo.pageNum}')}">下一页</a>
+            <a class="ui item" href="/daejong/hc/page?page=${pageInfo.pages}">末页</a>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div style="text-align: right">
+        <h3>共<span class="ui red label">${pageInfo.pages}</span>页/当前为: <span class="ui red label">${pageInfo.pageNum}</span>页</h3>
+    </div>
+    <table class="ui selectable celled striped table center aligned">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>价格</th>
+            <th>位置</th>
+            <th>详细信息</th>
+        </tr>
+        </thead>
+        <tbody>
+            <#list list as houseEntity>
+                <tr>
+                    <td>${houseEntity.houseName}</td>
+                    <td>${houseEntity.price}</td>
+                    <td>${houseEntity.houseLocation}</td>
+                    <td><a href="${houseEntity.url}" target="_blank">${houseEntity.url}</a></td>
+                </tr>
+            </#list>
+        </tbody>
+    </table>
+</body>
+</html>
